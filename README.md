@@ -27,32 +27,31 @@ As shown in the circuit diagram we need only 3 Arduino terminal pins, pin 8 is f
 
 ### PRGORAM 
 ```
-DEVELOPED BY:AMURTHA VAAHINI
+DEVELOPED BY:AMURTHA VAAHINI.kn
 REG.NO: 212222240008
-#define m1 2
-#define m2 3
-
+int motorValue;
+int potValue;
 void setup()
 {
-  pinMode(m1, OUTPUT);
-  pinMode(m2, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(6, OUTPUT);
 }
 void loop()
 {
-  digitalWrite(m1, HIGH);
-  digitalWrite(m2, LOW);
-  delay(10000);
+  potValue = analogRead (0);
+  motorValue = map(potValue, 0, 1023, 0, 255);
+  analogWrite(9, motorValue);
+  digitalWrite(6, LOW);
 }
+
 ``` 
 
 ### OUTPUT
 ### BEFORE SIMULATION:
-![image](https://github.com/amurthavaahininagarajan/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118679102/9c160b77-d84e-4128-ac59-da6e85c3a6a6)
-### AFTER SIMULATION:
-![image](https://github.com/amurthavaahininagarajan/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118679102/ab1b854c-17ec-4b74-af15-a6960386320d)
-### RPM
-![image](https://github.com/amurthavaahininagarajan/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118679102/3d2647c4-9567-42ee-b7d1-86a6990b0174)
+![image](https://github.com/amurthavaahininagarajan/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118679102/eb18d94d-c8b5-4691-bc12-4e0488bafd62)
 
+### AFTER SIMULATION:
+![image](https://github.com/amurthavaahininagarajan/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/assets/118679102/9d0595e4-10b3-4fc3-a934-06fe1c23456e)
 
 ### RESULTS:
 Thus, the speed and the direction of a DC motor using L293D driver ic(H- bridge) is controlled.
